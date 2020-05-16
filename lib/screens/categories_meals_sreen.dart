@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meals/components/meal_item.dart';
-import 'package:meals/data/dumy_data.dart';
 import 'package:meals/models/category.dart';
+import 'package:meals/models/meal.dart';
 
 class CategoriesMealScreen extends StatelessWidget {
   //final Category category;
@@ -9,12 +9,14 @@ class CategoriesMealScreen extends StatelessWidget {
   // const CategoriesMealScreen(
   //   this.category,
   // );
+  final List<Meal> meals;
+  const CategoriesMealScreen(this.meals);
 
   @override
   Widget build(BuildContext context) {
     final category = ModalRoute.of(context).settings.arguments as Category;
 
-    final categoryMeals = DUMMY_MEALS.where((meal) {
+    final categoryMeals = meals.where((meal) {
       return meal.categories.contains(category.id);
     }).toList();
 
