@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meals/data/dumy_data.dart';
 import 'package:meals/models/meal.dart';
+import 'package:meals/models/settings.dart';
 import 'package:meals/screens/categories_meals_sreen.dart';
 import 'package:meals/screens/meal_detail_screen.dart';
 import 'package:meals/screens/settings_screen.dart';
@@ -15,7 +16,26 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  Settings settings = Settings();
   List<Meal> _availableMeals = DUMMY_MEALS;
+
+  void _fillterMeals(Settings settings) {
+    setState(() {
+      this.settings = settings;
+
+      _availableMeals = DUMMY_MEALS.where((meal) {
+        final filterGluten = settings.isGlutenFree && !meal.isGlutenFree;
+        final filterLactose = settings.isLactoseFree && !meal.isLactoseFree;
+        final filterVegetarian = settings.isVegetarian && !meal.isVegetarian;
+        final filterVegan = settings.isVegan && !meal.isVegan;
+
+        return !filterGluten &&
+            !filterLactose &&
+            !filterVegetarian &&
+            !filterVegan;
+      }).toList();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +57,10 @@ class _MyAppState extends State<MyApp> {
         AppRoutes.CATEGORIES_MEALS: (ctx) =>
             CategoriesMealScreen(_availableMeals),
         AppRoutes.MEAL_DETAIL: (ctx) => MealDetailScreen(),
-        AppRoutes.SETTINGS: (ctx) => SettingsScreen(),
+        AppRoutes.SETTINGS: (ctx) => SettingsScreen(
+              settings,
+              _fillterMeals,
+            ),
       },
       // PRIMEIRA CHAMADA CASO NÃO ENCONTE AS ROTAS NOMEADAS
       //chamada caso não encontre as rotas nomeadas
