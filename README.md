@@ -14,3 +14,7 @@ Projeto destinado a receitas de restaurante, menu ...
 Versão | Status | Data
 ----------|--------|-------------
 0.0.* | beta | 2020/05/14
+
+## License
+
+[MIT](https://github.com/isaiasnas/recipes/blob/master/LICENSE)
