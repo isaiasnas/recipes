@@ -23,37 +23,39 @@ class MainDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-        child: Column(
-      children: <Widget>[
-        Container(
-          height: 120,
-          width: double.infinity,
-          padding: const EdgeInsets.all(20),
-          color: Theme.of(context).accentColor,
-          alignment: Alignment.bottomRight,
-          child: Text(
-            'Vamos Cozinhar ?',
-            style: TextStyle(
-              fontWeight: FontWeight.w900,
-              fontSize: 30,
-              color: Theme.of(context).primaryColor,
+      child: Column(
+        children: <Widget>[
+          Container(
+            height: 120,
+            width: double.infinity,
+            padding: const EdgeInsets.all(20),
+            color: Theme.of(context).accentColor,
+            alignment: Alignment.bottomRight,
+            child: Text(
+              'Vamos Cozinhar ?',
+              style: TextStyle(
+                fontWeight: FontWeight.w900,
+                fontSize: 30,
+                color: Theme.of(context).primaryColor,
+              ),
             ),
           ),
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        _createItem(
-          Icons.restaurant,
-          'Refeições',
-          () => Navigator.of(context).pushReplacementNamed(AppRoutes.HOME),
-        ),
-        _createItem(
-          Icons.settings,
-          'Configurações',
-          () => Navigator.of(context).pushReplacementNamed(AppRoutes.SETTINGS),
-        ),
-      ],
-    ));
+          SizedBox(
+            height: 20,
+          ),
+          _createItem(
+            Icons.restaurant,
+            'Refeições',
+            () => Navigator.of(context).pushReplacementNamed(AppRoutes.HOME),
+          ),
+          _createItem(
+            Icons.settings,
+            'Configurações',
+            () =>
+                Navigator.of(context).pushReplacementNamed(AppRoutes.SETTINGS),
+          ),
+        ],
+      ),
+    );
   }
 }

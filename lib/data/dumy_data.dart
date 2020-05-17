@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:meals/models/enum/complexity.dart';
+import 'package:meals/models/enum/cost.dart';
 
 import '../models/category.dart';
 import '../models/meal.dart';

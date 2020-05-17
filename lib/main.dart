@@ -64,7 +64,6 @@ class _MyAppState extends State<MyApp> {
                 fontSize: 20,
                 fontFamily: 'RobotoCondensed',
               ))),
-      //home: CategoriesScreen(),
       routes: {
         AppRoutes.HOME: (ctx) => TabScreen(_favoriteMeals),
         AppRoutes.CATEGORIES_MEALS: (ctx) =>
@@ -76,20 +75,6 @@ class _MyAppState extends State<MyApp> {
               _fillterMeals,
             ),
       },
-      // PRIMEIRA CHAMADA CASO NÃO ENCONTE AS ROTAS NOMEADAS
-      //chamada caso não encontre as rotas nomeadas
-      // onGenerateRoute: (settings) {
-      //   if (settings.name == '/auguma-coisa') {
-      //     return null;
-      //   }
-      // },
-      // SEGUNDA CHAMADA EM ROTAS DESCONHECIDAS
-      //chamada caso rota desconhecida similar ao 404
-      // onUnknownRoute: (settings) {
-      //   if (settings.name == '/auguma-coisa') {
-      //     return null;
-      //   }
-      // },
     );
   }
 }

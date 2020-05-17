@@ -4,11 +4,6 @@ import 'package:meals/models/category.dart';
 import 'package:meals/models/meal.dart';
 
 class CategoriesMealScreen extends StatelessWidget {
-  //final Category category;
-
-  // const CategoriesMealScreen(
-  //   this.category,
-  // );
   final List<Meal> meals;
   const CategoriesMealScreen(this.meals);
 

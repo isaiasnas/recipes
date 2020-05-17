@@ -1,16 +1,6 @@
 import 'package:flutter/foundation.dart';
-
-enum Complexity {
-  Simple,
-  Medium,
-  Difficult,
-}
-
-enum Cost {
-  Cheap,
-  Fair,
-  Expensive,
-}
+import 'package:meals/models/enum/complexity.dart';
+import 'package:meals/models/enum/cost.dart';
 
 class Meal {
   final String id;
@@ -44,7 +34,7 @@ class Meal {
   });
 
   String get complexityText {
-    switch (complexity) {
+    switch (this.complexity) {
       case Complexity.Simple:
         return 'Simples';
       case Complexity.Medium:
@@ -68,5 +58,4 @@ class Meal {
         return 'Desconhecido';
     }
   }
-
 }
